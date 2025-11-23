@@ -6,14 +6,17 @@ dotenv.config();
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    process.env.FRONTEND_URL
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://tinylink-hb9u.vercel.app",
+      process.env.FRONTEND_URL
+    ],
+    methods: ["GET", "POST", "DELETE", "PUT"],
+    allowedHeaders: ["Content-Type"],
+  })
+);
 
 app.use(express.json());
 
